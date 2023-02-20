@@ -1,0 +1,19 @@
+---
+name: Check Point CloudGuard Assessment
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+jobs:
+  Spectral_scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Sarif results to Github
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: output.sarif
