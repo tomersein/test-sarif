@@ -14,7 +14,7 @@
               },
               "help": {
                 "text": "Make sure never exposing privates keys. If a key is already exposed, consider revoking this key"
-              },
+              }
             }
           ]
         }
