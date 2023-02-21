@@ -9,6 +9,12 @@ on:
     branches:
       - master
       - main
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   Spectral_scanner:
     runs-on: ubuntu-latest
