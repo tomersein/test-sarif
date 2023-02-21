@@ -9,9 +9,9 @@ on:
     branches:
       - master
       - main
-permissions:
-  actions: read
-  contents: read
+#permissions:
+#  actions: read
+#  contents: read
 
 jobs:
   Spectral_scanner:
