@@ -21,4 +21,4 @@ jobs:
       - name: Upload Sarif results to Github
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: test-sarif/output.sarif
+          sarif_file: output.sarif
