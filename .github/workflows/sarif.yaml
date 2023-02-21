@@ -1,24 +1,46 @@
----
-name: Check Point CloudGuard Assessment
-on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
-
-permissions: write-all
-
-jobs:
-  Spectral_scanner:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Upload Sarif results to Github
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: output.sarif
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Spectral Scan",
+          "rules": [
+            {
+              "id": "SENF001",
+              "name": "Private key file",
+              "fullDescription": {
+                "text": "File with a private SSH key"
+              },
+              "help": {
+                "text": "Make sure never exposing privates keys. If a key is already exposed, consider revoking this key"
+              },
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SENF001",
+          "message": {
+            "text": "Private key file"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_dsa"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
