@@ -16,6 +16,8 @@ jobs:
   Spectral_scanner:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Upload Sarif results to Github
         uses: github/codeql-action/upload-sarif@v2
         with:
