@@ -1,1 +1,46 @@
-tomer-test
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Spectral Scan",
+          "rules": [
+            {
+              "id": "SENF001",
+              "name": "Private key file",
+              "fullDescription": {
+                "text": "File with a private SSH key"
+              },
+              "help": {
+                "text": "Make sure never exposing privates keys. If a key is already exposed, consider revoking this key"
+              },
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SENF001",
+          "message": {
+            "text": "Private key file"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_dsa"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
