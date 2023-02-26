@@ -7,13 +7,173 @@
           "name": "Spectral Scan",
           "rules": [
             {
-              "id": "SENF001",
-              "name": "Private key file",
+              "id": "AUDIT002",
+              "name": "API Key Audit",
               "fullDescription": {
-                "text": "File with a private SSH key"
+                "text": "Possible sensitive machine generated API key"
               },
               "help": {
-                "text": "Make sure never exposing privates keys. If a key is already exposed, consider revoking this key"
+                "text": ""
+              }
+            },
+            {
+              "id": "AUDIT023",
+              "name": "Client ID Audit",
+              "fullDescription": {
+                "text": "Possible sensitive client information"
+              },
+              "help": {
+                "text": ""
+              }
+            },
+            {
+              "id": "CLD001",
+              "name": "Visible AWS Key",
+              "fullDescription": {
+                "text": "Found a visible AWS Key"
+              },
+              "help": {
+                "text": "Make sure to have all keys stored/encrypted in a single safe place such as Vault or gitcrypt"
+              }
+            },
+            {
+              "id": "CLD004",
+              "name": "Visible Google API Key",
+              "fullDescription": {
+                "text": "Found a visible Google secret"
+              },
+              "help": {
+                "text": "Make sure to have all keys stored/encrypted in a single safe place such as Vault or gitcrypt"
+              }
+            },
+            {
+              "id": "CLD030",
+              "name": "Visible Google cloud host",
+              "fullDescription": {
+                "text": "Found a visible Google cloud host"
+              },
+              "help": {
+                "text": "Exposing your hostnames make it easier for attackers to find targets"
+              }
+            },
+            {
+              "id": "GOOG001",
+              "name": "Google Client ID URL",
+              "fullDescription": {
+                "text": "Found a Google client ID URL"
+              },
+              "help": {
+                "text": ""
+              }
+            },
+            {
+              "id": "KEYS002",
+              "name": "Visible Private Key",
+              "fullDescription": {
+                "text": "Found a visible OpenSSH Key"
+              },
+              "help": {
+                "text": "Make sure to have all keys encrypted in a single safe place"
+              }
+            },
+            {
+              "id": "MEMC002",
+              "name": "MemCached configured to run as root",
+              "fullDescription": {
+                "text": "Your MemCached config file configured to run MemCached as root (using '-u root' or by default when -u not used)"
+              },
+              "help": {
+                "text": "It's strongly recommended to run MemCached as OS user with no administrative permissions"
+              }
+            },
+            {
+              "id": "MYSQL003",
+              "name": "MySQL config file contains a visible report password",
+              "fullDescription": {
+                "text": "Your MySQL config file contains a visible report-password"
+              },
+              "help": {
+                "text": "It's strongly recommended to use passwords bigger than 8 characters with few kinds of letters, symbols, and numbers"
+              }
+            },
+            {
+              "id": "REDIS001",
+              "name": "Redis configuration include one or more users with a visible password",
+              "fullDescription": {
+                "text": "Your redis.conf include one or more users with a visible passwords"
+              },
+              "help": {
+                "text": "It's strongly recommended to choose long password with variety of letters and symbols"
+              }
+            },
+            {
+              "id": "REDIS003",
+              "name": "Redis configured to worldwide listening",
+              "fullDescription": {
+                "text": "Your redis.conf configured with 'protected-mode no' but no binds is configured or bind to worldwide (i.e 0.0.0.0 or ::0)"
+              },
+              "help": {
+                "text": "It's strongly recommended to set protected-mode to 'yes' and not to expose Redis to the Internet as much as possible"
+              }
+            },
+            {
+              "id": "SENF006",
+              "name": "Potential cryptographic key bundle file",
+              "fullDescription": {
+                "text": "File with Potential cryptographic key bundle"
+              },
+              "help": {
+                "text": "Make sure never exposing private keys. If a key is already exposed, consider revoking this key"
+              }
+            },
+            {
+              "id": "SENF086",
+              "name": "Google Services JSON File",
+              "fullDescription": {
+                "text": "Google Services JSON File"
+              },
+              "help": {
+                "text": "Make sure this file doesn't include any sensitive data such as passwords, tokens, or keys"
+              }
+            },
+            {
+              "id": "SENF106",
+              "name": "Found a SQLite database file",
+              "fullDescription": {
+                "text": "SQLite database file"
+              },
+              "help": {
+                "text": "Make sure this file doesn't include any sensitive data such as passwords, tokens, keys, or other sensitive information"
+              }
+            },
+            {
+              "id": "SVC016",
+              "name": "Exposed Sentry DSN",
+              "fullDescription": {
+                "text": "Found an exposed sentry secret"
+              },
+              "help": {
+                "text": "Make sure to have all keys encrypted or stored in a single safe place"
+              }
+            },
+            {
+              "id": "TF010",
+              "name": "Visible Terraform Azure Database password",
+              "fullDescription": {
+                "text": "Found a Visible Terraform Azure Database password"
+              },
+              "help": {
+                "text": "Make sure not to expose passwords or tokens"
+              }
+            },
+            {
+              "id": "TF011",
+              "name": "Visible Terraform Azure Database username",
+              "fullDescription": {
+                "text": "Found a Visible Terraform Azure Database username"
+              },
+              "help": {
+                "text": "Make sure not to expose passwords or tokens"
               }
             }
           ]
@@ -21,20 +181,440 @@
       },
       "results": [
         {
-          "ruleId": "SENF001",
+          "ruleId": "AUDIT002",
           "message": {
-            "text": "Private key file"
+            "text": "API Key Audit"
           },
-          "level": "error",
+          "level": "high",
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "key_dsa"
+                  "uri": "src/infra/run.sh"
+                },
+                "region": {
+                  "charOffset": 48,
+                  "charLength": 36
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AUDIT023",
+          "message": {
+            "text": "Client ID Audit"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".test/fb.json"
+                },
+                "region": {
+                  "charOffset": 47,
+                  "charLength": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AUDIT023",
+          "message": {
+            "text": "Client ID Audit"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/multicloud/azure/main.json"
+                },
+                "region": {
+                  "charOffset": 937,
+                  "charLength": 22
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AUDIT023",
+          "message": {
+            "text": "Client ID Audit"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/fb.json"
+                },
+                "region": {
+                  "charOffset": 47,
+                  "charLength": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CLD001",
+          "message": {
+            "text": "Visible AWS Key"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/backend/uploader.go"
+                },
+                "region": {
+                  "charOffset": 360,
+                  "charLength": 20
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CLD004",
+          "message": {
+            "text": "Visible Google API Key"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 668,
+                  "charLength": 39
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CLD030",
+          "message": {
+            "text": "Visible Google cloud host"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 492,
+                  "charLength": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CLD030",
+          "message": {
+            "text": "Visible Google cloud host"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 864,
+                  "charLength": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GOOG001",
+          "message": {
+            "text": "Google Client ID URL"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 492,
+                  "charLength": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GOOG001",
+          "message": {
+            "text": "Google Client ID URL"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 864,
+                  "charLength": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "KEYS002",
+          "message": {
+            "text": "Visible Private Key"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/id_rsa"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 2609
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "KEYS002",
+          "message": {
+            "text": "Visible Private Key"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/rsa.key"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 1674
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MEMC002",
+          "message": {
+            "text": "MemCached configured to run as root"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/memcache/memcached.conf"
+                },
+                "region": {
+                  "charOffset": 889,
+                  "charLength": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MYSQL003",
+          "message": {
+            "text": "MySQL config file contains a visible report password"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/mysql/mysqld.cnf"
+                },
+                "region": {
+                  "charOffset": 652,
+                  "charLength": 4
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "REDIS001",
+          "message": {
+            "text": "Redis configuration include one or more users with a visible password"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/redis/redis.conf"
+                },
+                "region": {
+                  "charOffset": 557,
+                  "charLength": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "REDIS003",
+          "message": {
+            "text": "Redis configured to worldwide listening"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/redis/redis.conf"
+                },
+                "region": {
+                  "charOffset": 230,
+                  "charLength": 23
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "SENF006",
+          "message": {
+            "text": "Potential cryptographic key bundle file"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/notebook/docs/source/ipython_security.asc"
                 },
                 "region": {
                   "charOffset": 0,
                   "charLength": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "SENF086",
+          "message": {
+            "text": "Google Services JSON File"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/infra/google-api.json"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "SENF106",
+          "message": {
+            "text": "Found a SQLite database file"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/notebook/notebook/tests/test_hist.sqlite"
+                },
+                "region": {
+                  "charOffset": 0,
+                  "charLength": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "SVC016",
+          "message": {
+            "text": "Exposed Sentry DSN"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/sentry.js"
+                },
+                "region": {
+                  "charOffset": 374,
+                  "charLength": 73
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "TF010",
+          "message": {
+            "text": "Visible Terraform Azure Database password"
+          },
+          "level": "high",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/multicloud/terraform/azure/main.tf"
+                },
+                "region": {
+                  "charOffset": 440,
+                  "charLength": 22
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "TF011",
+          "message": {
+            "text": "Visible Terraform Azure Database username"
+          },
+          "level": "medium",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/multicloud/terraform/azure/main.tf"
+                },
+                "region": {
+                  "charOffset": 391,
+                  "charLength": 13
                 }
               }
             }
