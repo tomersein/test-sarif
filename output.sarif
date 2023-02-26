@@ -185,7 +185,7 @@
           "message": {
             "text": "API Key Audit"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -205,7 +205,7 @@
           "message": {
             "text": "Client ID Audit"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -225,27 +225,7 @@
           "message": {
             "text": "Client ID Audit"
           },
-          "level": "medium",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/multicloud/azure/main.json"
-                },
-                "region": {
-                  "charOffset": 937,
-                  "charLength": 22
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AUDIT023",
-          "message": {
-            "text": "Client ID Audit"
-          },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -261,11 +241,31 @@
           ]
         },
         {
+          "ruleId": "AUDIT023",
+          "message": {
+            "text": "Client ID Audit"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/multicloud/azure/main.json"
+                },
+                "region": {
+                  "charOffset": 937,
+                  "charLength": 22
+                }
+              }
+            }
+          ]
+        },
+        {
           "ruleId": "CLD001",
           "message": {
             "text": "Visible AWS Key"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -285,7 +285,7 @@
           "message": {
             "text": "Visible Google API Key"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -305,7 +305,7 @@
           "message": {
             "text": "Visible Google cloud host"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -325,7 +325,7 @@
           "message": {
             "text": "Visible Google cloud host"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -345,7 +345,7 @@
           "message": {
             "text": "Google Client ID URL"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -365,7 +365,7 @@
           "message": {
             "text": "Google Client ID URL"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -385,7 +385,7 @@
           "message": {
             "text": "Visible Private Key"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -405,7 +405,7 @@
           "message": {
             "text": "Visible Private Key"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -425,7 +425,7 @@
           "message": {
             "text": "MemCached configured to run as root"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -445,7 +445,7 @@
           "message": {
             "text": "MySQL config file contains a visible report password"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -465,7 +465,7 @@
           "message": {
             "text": "Redis configuration include one or more users with a visible password"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -485,7 +485,7 @@
           "message": {
             "text": "Redis configured to worldwide listening"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -505,7 +505,7 @@
           "message": {
             "text": "Potential cryptographic key bundle file"
           },
-          "level": "medium",
+          "level": "none",
           "locations": [
             {
               "physicalLocation": {
@@ -525,7 +525,7 @@
           "message": {
             "text": "Google Services JSON File"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -545,7 +545,7 @@
           "message": {
             "text": "Found a SQLite database file"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
@@ -565,7 +565,7 @@
           "message": {
             "text": "Exposed Sentry DSN"
           },
-          "level": "medium",
+          "level": "none",
           "locations": [
             {
               "physicalLocation": {
@@ -585,7 +585,7 @@
           "message": {
             "text": "Visible Terraform Azure Database password"
           },
-          "level": "high",
+          "level": "error",
           "locations": [
             {
               "physicalLocation": {
@@ -605,7 +605,7 @@
           "message": {
             "text": "Visible Terraform Azure Database username"
           },
-          "level": "medium",
+          "level": "warning",
           "locations": [
             {
               "physicalLocation": {
