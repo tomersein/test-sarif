@@ -230,11 +230,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "src/multicloud/azure/main.json"
+                  "uri": "src/frontend/fb.json"
                 },
                 "region": {
-                  "charOffset": 937,
-                  "charLength": 22
+                  "charOffset": 47,
+                  "charLength": 7
                 }
               }
             }
@@ -250,11 +250,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "src/frontend/fb.json"
+                  "uri": "src/multicloud/azure/main.json"
                 },
                 "region": {
-                  "charOffset": 47,
-                  "charLength": 7
+                  "charOffset": 937,
+                  "charLength": 22
                 }
               }
             }
@@ -505,7 +505,7 @@
           "message": {
             "text": "Potential cryptographic key bundle file"
           },
-          "level": "none",
+          "level": "note",
           "locations": [
             {
               "physicalLocation": {
@@ -565,7 +565,7 @@
           "message": {
             "text": "Exposed Sentry DSN"
           },
-          "level": "none",
+          "level": "note",
           "locations": [
             {
               "physicalLocation": {
