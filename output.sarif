@@ -210,11 +210,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": ".test/fb.json"
+                  "uri": "src/multicloud/azure/main.json"
                 },
                 "region": {
-                  "charOffset": 47,
-                  "charLength": 7
+                  "charOffset": 937,
+                  "charLength": 22
                 }
               }
             }
@@ -250,11 +250,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "src/multicloud/azure/main.json"
+                  "uri": ".test/fb.json"
                 },
                 "region": {
-                  "charOffset": 937,
-                  "charLength": 22
+                  "charOffset": 47,
+                  "charLength": 7
                 }
               }
             }
@@ -390,11 +390,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "src/infra/id_rsa"
+                  "uri": "src/infra/rsa.key"
                 },
                 "region": {
                   "charOffset": 0,
-                  "charLength": 2609
+                  "charLength": 1674
                 }
               }
             }
@@ -410,11 +410,11 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "src/infra/rsa.key"
+                  "uri": "src/infra/id_rsa"
                 },
                 "region": {
                   "charOffset": 0,
-                  "charLength": 1674
+                  "charLength": 2609
                 }
               }
             }
